@@ -14,11 +14,11 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-a {
+a:hover,
+a:visited,
+a:link,
+a:active {
 	text-decoration: none;
-}
-
-a:visited {
 	color: #d6462c;
 }
 

@@ -30,7 +30,7 @@
 </script>
 
 <div class="main">
-	<h1><span class="my-name">PAPHAWIT'S</span> SITE</h1>
+	<h1><span class="my-name">GREAT'S</span> SITE</h1>
 	{#each items as item}
 		{#if !item.hidden}
 			<Item {...{ ...item, ...controller }} />
