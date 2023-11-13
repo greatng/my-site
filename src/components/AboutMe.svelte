@@ -11,9 +11,16 @@
 		I'm currently working at Refinitiv as a software engineer.\t
 		I'm interested in web development, devops, and cloud computing.\t
 		I love to tackle challenging problems and learn new things.\t
-		I'm a fast learner and I can adapt to new environment quickly.`.toLocaleUpperCase();
+		I'm a fast learner and I can adapt to new environment quickly.`;
 </script>
 
-<div class="about-me" on:click={handleClick}>
+<div
+	class="about-me"
+	on:click={handleClick}
+	on:keydown={(event) => {
+		if (event.key === 'Enter') handleClick();
+	}}
+	role="contentinfo"
+>
 	<p class="about-me-text">{detail}</p>
 </div>

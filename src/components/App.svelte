@@ -40,9 +40,9 @@
 <div class="main">
 	<AboutMe />
 	<h1><span class="my-name">GREAT'S</span> SITE</h1>
-	{#each items as item}
+	{#each items as item, idx}
 		{#if !item.hidden}
-			<Item {...{ ...item, ...controller }} />
+			<Item {...{ ...item, ...controller, idx }} />
 		{/if}
 	{/each}
 </div>

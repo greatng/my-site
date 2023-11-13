@@ -1,4 +1,5 @@
 <script lang="ts">
+	export let idx = 0;
 	export let handleHover = () => {};
 	export let handleMouseLeave = () => {};
 	export let handleClick = () => {};
@@ -10,6 +11,13 @@
 	{#if link}
 		<a href={link}>{item}</a>
 	{:else}
-		<span on:click={handleClick}>{item}</span>
+		<span
+			on:click={handleClick}
+			role="button"
+			tabindex={idx + 1}
+			on:keydown={(event) => {
+				if (event.key === 'Enter') handleClick();
+			}}>{item}</span
+		>
 	{/if}
 </h2>
