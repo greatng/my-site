@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Item from './Item.svelte';
 	import AboutMe from './AboutMe.svelte';
-	import type { IItems } from './model';
+	import type { Items } from './model';
 	import './page.css';
 
 	const handleHover = () => {
@@ -22,7 +22,7 @@
 	};
 
 	const controller = { handleHover, handleMouseLeave };
-	const items: IItems[] = [
+	const items: Items[] = [
 		{
 			item: 'ABOUT ME',
 			handleClick: () => {

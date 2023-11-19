@@ -9,7 +9,7 @@
 
 <h2 class="item-normal" on:mouseenter={handleHover} on:mouseleave={handleMouseLeave}>
 	{#if link}
-		<a href={link}>{item}</a>
+		<a href={link} target="_blank">{item}</a>
 	{:else}
 		<span
 			on:click={handleClick}

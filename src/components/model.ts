@@ -1,6 +1,6 @@
-export interface IItems {
+export type Items = {
 	item: string;
-	link: string | undefined;
-	hidden: boolean;
-	handleClick: () => void;
-}
+	link?: string;
+	hidden?: boolean;
+	handleClick?: () => void;
+};
