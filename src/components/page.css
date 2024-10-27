@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Forum:200,400,600&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Poppin:200,400&display=swap');
 
 
 body {
-	background-color: #f5e2d0;
+	background-color: #c34813;
+	background: -webkit-linear-gradient(#c34813, #000000DD);
+	background: -moz-linear-gradient(#c34813, #000000DD);
 	font-family: 'Forum', sans-serif;
 	font-size: 2rem;
 	font-weight: 200;
 	line-height: 1.5;
-	color: #d6462c;
+	color: #e1e1e1;
 	margin: 0;
 	padding: 0;
 	overflow-y: hidden;
@@ -37,7 +38,6 @@ h2 {
 }
 
 .my-name {
-	font-family: 'Poppin', serif;
 	font-weight: 400;
 }
 
@@ -62,7 +62,7 @@ h2 {
 .about-me {
 	display: flex;
 	font-size: 2rem;
-	background-color: #000000DD;
+	background-color: #000000BB;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;

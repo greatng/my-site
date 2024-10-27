@@ -1,48 +1,33 @@
 <script lang="ts">
 	import Item from './Item.svelte';
-	import AboutMe from './AboutMe.svelte';
-	import type { Items } from './model';
+	import { aboutMe, ITEMS_DETAILS, PageItems, type Items } from './model';
 	import './page.css';
+	import Dialog from './Dialog.svelte';
+	let isDialogDisplay = false;
 
-	const handleHover = () => {
-		const elems = document.querySelectorAll('.item-normal');
+	let detail: string[] | undefined = [];
 
-		if (elems)
-			elems.forEach((elem) => {
-				if (!elem.matches(':hover')) {
-					elem.className = 'item-blur';
-				}
-			});
-	};
-
-	const handleMouseLeave = () => {
-		const elems = document.querySelectorAll('.item-blur');
-
-		if (elems) elems.forEach((elem) => (elem.className = 'item-normal'));
-	};
-
-	const controller = { handleHover, handleMouseLeave };
 	const items: Items[] = [
 		{
-			item: 'ABOUT ME',
+			item: PageItems.AboutMe,
 			handleClick: () => {
-				const elem = document.querySelector('.about-me');
-
-				if (elem) elem.className = 'about-me about-me-show';
+				isDialogDisplay = true;
+				detail = ITEMS_DETAILS[PageItems.AboutMe];
 			}
 		},
-		{ item: 'RESUME', link: 'https://resume.greatng.me' },
-		{ item: 'PROJECTS', hidden: true },
-		{ item: 'GITHUB', link: 'https://github.com/greatng' }
+		{ item: PageItems.Resume, link: 'https://resume.greatng.me' },
+		{ item: PageItems.Projects, hidden: true },
+		{ item: PageItems.GitHub, link: 'https://github.com/greatng' }
 	];
 </script>
 
 <div class="main">
-	<AboutMe />
-	<h1><span class="my-name">GREAT'S</span> SITE</h1>
+	<h1><span class="my-name">PAPHAWIT'S</span> SITE</h1>
 	{#each items as item, idx}
 		{#if !item.hidden}
-			<Item {...{ ...item, ...controller, idx }} />
+			<Item {...{ ...item, idx }} />
 		{/if}
 	{/each}
+
+	<Dialog bind:isDialogDisplay bind:detail />
 </div>
