@@ -17,6 +17,7 @@
 		},
 		{ item: PageItems.Resume, link: 'https://resume.greatng.me' },
 		{ item: PageItems.Projects, hidden: true },
+		{ item: 'Goodbuy, price comparison  app', link: 'https://goodbuy.greatng/me' },
 		{ item: PageItems.GitHub, link: 'https://github.com/greatng' }
 	];
 </script>
