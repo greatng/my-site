@@ -1,23 +1,21 @@
 <script lang="ts">
 	import Item from './Item.svelte';
-	import { aboutMe, ITEMS_DETAILS, PageItems, type Items } from './model';
+	import { Details, ITEMS_DETAILS, PageItems, type Items } from './model';
 	import './page.css';
 	import Dialog from './Dialog.svelte';
 	let isDialogDisplay = false;
 
-	let detail: string[] | undefined = [];
+	let details: Details[] | undefined = [];
+
+	const handleClick = (item: PageItems) => {
+		isDialogDisplay = true;
+		details = ITEMS_DETAILS[item];
+	};
 
 	const items: Items[] = [
-		{
-			item: PageItems.AboutMe,
-			handleClick: () => {
-				isDialogDisplay = true;
-				detail = ITEMS_DETAILS[PageItems.AboutMe];
-			}
-		},
+		{ item: PageItems.AboutMe, handleClick: () => handleClick(PageItems.AboutMe) },
 		{ item: PageItems.Resume, link: 'https://resume.greatng.me' },
-		{ item: PageItems.Projects, hidden: true },
-		{ item: 'Goodbuy, price comparison  app', link: 'https://goodbuy.greatng/me' },
+		{ item: PageItems.Projects, handleClick: () => handleClick(PageItems.Projects) },
 		{ item: PageItems.GitHub, link: 'https://github.com/greatng' }
 	];
 </script>
@@ -30,5 +28,5 @@
 		{/if}
 	{/each}
 
-	<Dialog bind:isDialogDisplay bind:detail />
+	<Dialog bind:isDialogDisplay bind:details />
 </div>

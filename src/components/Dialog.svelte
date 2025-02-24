@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { Details } from './model';
+
 	export let isDialogDisplay = false;
 	export let handleClick = () => {
 		isDialogDisplay = false;
 	};
 
-	export let detail: string[] = [];
+	export let details: Details[] = [];
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
@@ -16,7 +18,7 @@
 	}}
 	role="contentinfo"
 >
-	{#each detail as text}
-		<p class="about-me-text">{text}</p>
+	{#each details as detail}
+		<a href={detail.link}><p class="about-me-text">{detail.item}</p></a>
 	{/each}
 </div>

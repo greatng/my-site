@@ -93,8 +93,12 @@ h2 {
 	top: 0dvh;
 }
 
-.about-me-text {
+.dialog-text {
 	margin: 0.1rem 1rem;
 	text-align: center;
 	font-weight: 600;
+}
+
+.dialog-text a {
+	font-weight: 900;
 }
