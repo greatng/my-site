@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Item from './Item.svelte';
-	import { Details, ITEMS_DETAILS, PageItems, type Items } from './model';
+	import { ITEMS_DETAILS, PageItems } from './model';
+	import type { Details, Items } from './model';
 	import './page.css';
 	import Dialog from './Dialog.svelte';
 	let isDialogDisplay = false;
@@ -20,13 +21,15 @@
 	];
 </script>
 
-<div class="main">
-	<h1><span class="my-name">PAPHAWIT'S</span> SITE</h1>
-	{#each items as item, idx}
-		{#if !item.hidden}
-			<Item {...{ ...item, idx }} />
-		{/if}
-	{/each}
+<div class="noise">
+	<div class="main {isDialogDisplay ? 'main-blur' : ''}">
+		<h1>PAPHAWIT'S site</h1>
+		{#each items as item, idx}
+			{#if !item.hidden}
+				<Item {...{ ...item, idx }} />
+			{/if}
+		{/each}
+	</div>
 
 	<Dialog bind:isDialogDisplay bind:details />
 </div>

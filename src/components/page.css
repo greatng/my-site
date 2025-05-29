@@ -1,15 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Forum:200,400,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=NotoSans:200,400,600&display=swap');
 
+:root {
+	--background-color: hsl(219, 80%, 8%);
+	--primary-color: hsl(255, 2%, 50%);
+}
 
 body {
-	background-color: #c34813;
-	background: -webkit-linear-gradient(#c34813, #000000DD);
-	background: -moz-linear-gradient(#c34813, #000000DD);
-	font-family: 'Forum', sans-serif;
+	background-color: var(--background-color);
+	font-family: 'NotoSans', sans-serif;
 	font-size: 2rem;
 	font-weight: 200;
 	line-height: 1.5;
-	color: #e1e1e1;
+	color: var(--primary-color);
 	margin: 0;
 	padding: 0;
 	overflow-y: hidden;
@@ -37,21 +39,18 @@ h2 {
 	transition-duration: 500ms;
 }
 
-.my-name {
-	font-weight: 400;
-}
-
 .main {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100dvh;
+	transition: 500ms;
 }
 
 .item-blur {
-	filter: blur(2px);
-	opacity: 0.2;
+	filter: blur(3px);
+	opacity: 0.5;
 	font-size: 2.25rem;
 }
 
@@ -59,10 +58,14 @@ h2 {
 	filter: blur(0px);
 }
 
-.about-me {
+.main-blur {
+	filter: blur(5px);
+	opacity: 0.1;
+}
+
+.dialog {
 	display: flex;
 	font-size: 2rem;
-	background-color: #000000BB;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -70,26 +73,23 @@ h2 {
 	top: 100dvh;
 	width: 100vw;
 	height: 100dvh;
-	-webkit-backdrop-filter: blur(5px);
-	backdrop-filter: blur(5px);
 	z-index: 999;
-	transition: 500ms cubic-bezier(1, 0, 0, 1)
+	transition: 500ms cubic-bezier(1, 0, 0, 1);
 }
 
 @media screen and (max-width: 600px) {
-	.about-me-text {
+	.dialog-text {
 		font-size: 1rem;
 	}
 }
 
 @media screen and (min-width: 601px) {
-	.about-me-text {
+	.dialog-text {
 		font-size: 1.25rem;
 	}
-
 }
 
-.about-me-show {
+.dialog-show {
 	top: 0dvh;
 }
 
@@ -101,4 +101,13 @@ h2 {
 
 .dialog-text a {
 	font-weight: 900;
+}
+
+.noise {
+	background: radial-gradient(circle at 50% 50%,
+			rgba(54, 22, 25, 0.7),
+			rgba(0, 0, 0, 0)),
+		url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+	filter: contrast(165%) brightness(350%);
+	mix-blend-mode: screen;
 }

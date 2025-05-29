@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Details } from './model';
+	import { type Details } from './model';
 
 	export let isDialogDisplay = false;
 	export let handleClick = () => {
@@ -11,7 +11,7 @@
 
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <div
-	class="about-me {isDialogDisplay ? 'about-me-show' : ''}"
+	class="dialog {isDialogDisplay ? 'dialog-show' : ''}"
 	on:click={handleClick}
 	on:keydown={(event) => {
 		if (event.key === 'Enter') handleClick();
@@ -19,6 +19,6 @@
 	role="contentinfo"
 >
 	{#each details as detail}
-		<a href={detail.link}><p class="about-me-text">{detail.item}</p></a>
+		<a href={detail.link}><p class="dialog-text">{detail.item}</p></a>
 	{/each}
 </div>
