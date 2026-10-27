@@ -1,3 +1,7 @@
+## Runtime
+
+Use Node.js 24 (`nvm use`) and install dependencies with `npm ci`. Run `npm run dev` for development, `npm run check` for type checking, and `npm run build` for the Vercel production build. The adapter targets `nodejs24.x`.
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
